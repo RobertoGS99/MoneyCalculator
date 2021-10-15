@@ -128,8 +128,13 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog{
     }
 
     private ItemListener currencyToChanged() {
-        //copiar y pegar
-        return null;
+        return new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                JComboBox comboBox = (JComboBox) e.getSource();
+                to = currencies.get(comboBox.getSelectedIndex());
+            }
+        };
     }
     
 }
