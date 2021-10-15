@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Persistence;
+package View;
 
-import Model.Currency;
-import Model.ExchangeRate;
+import Model.Money;
 
 /**
  *
  * @author Admin
  */
-public interface ExchangeRateLoader {
-    public ExchangeRate get(Currency from, Currency to);
+public interface MoneyDisplay {
+    
+    void display (Money money);
+    
 }
