@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -21,10 +21,12 @@ public class SwingMoneyDisplay extends JPanel implements MoneyDisplay {
     
     @Override
     public void display(Money money) {
+        this.removeAll();
         this.money = money;
         this.add(amoutn());
         this.add(currency());
         this.updateUI();
+        this.setVisible(true);
         
     }
 

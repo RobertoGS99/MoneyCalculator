@@ -7,7 +7,6 @@ import View.Swing.SwingMoneyDialog;
 import View.Swing.SwingMoneyDisplay;
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -35,6 +34,7 @@ public class MainFrame extends JFrame {
         this.add(MoneyDialog(), BorderLayout.NORTH);
         this.add(MoneyDisplay(), BorderLayout.CENTER);
         this.add(toolbar(), BorderLayout.SOUTH);
+        this.setVisible(true);
     }
     
     public void add(Command command){
@@ -45,11 +45,13 @@ public class MainFrame extends JFrame {
     
     private Component MoneyDialog() {
         SwingMoneyDialog swingMoneyDialog = new SwingMoneyDialog(currencies);
+        moneyDialog = swingMoneyDialog;
         return swingMoneyDialog;
     }
 
     private Component MoneyDisplay() {
         SwingMoneyDisplay swingMoneyDisplay = new SwingMoneyDisplay();
+        moneyDisplay = swingMoneyDisplay;
         return swingMoneyDisplay;
     }
 

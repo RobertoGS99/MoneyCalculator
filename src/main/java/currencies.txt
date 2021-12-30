@@ -1,3 +1,7 @@
-EUR, Euro, €
-USD, Dolar estadounidense, $
-YJP, Yen, ?
+EUR,Euro,€
+USD,DolarEstadounidense,$
+CAD,DolarCanada,$
+GBP,LibraEsterlina,£
+MXN,PesoMexicano,$
+JPY,YenJaponés,¥
+PLN,ZlotyPolaco,zł

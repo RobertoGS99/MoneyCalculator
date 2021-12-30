@@ -9,8 +9,6 @@ import Model.Currency;
 import Model.Money;
 import View.MoneyDialog;
 import java.awt.Component;
-import java.awt.PopupMenu;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
@@ -53,25 +51,25 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog{
     }
 
     private Component amount() {
-        JTextField textField = new JTextField("");
-        
+        JTextField textField = new JTextField("0");
+        textField.setSize(50, 400);
         textField.getDocument().addDocumentListener( amountChanged());
-        
+        amount = Double.valueOf(textField.getText());
         return textField;
     }
 
     private Component currencyFrom() {
         JComboBox combo = new JComboBox(nameOf(currencies));
         combo.addItemListener(currencyFromChanged());
-        to = currencies.get(combo.getSelectedIndex());
+        from = currencies.get(combo.getSelectedIndex());
         
         return combo;
     }
 
     private Component currencyTo() {
-        JComboBox combo = new JComboBox();
+        JComboBox combo = new JComboBox(nameOf(currencies));
         combo.addItemListener(currencyToChanged());
-        
+        to = currencies.get(combo.getSelectedIndex());
         
         return combo;
     }
@@ -117,23 +115,16 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog{
     }
 
     private ItemListener currencyFromChanged() {
-        return new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                
-                JComboBox comboBox = (JComboBox) e.getSource();
-                from = currencies.get(comboBox.getSelectedIndex());
-            }
+        return (ItemEvent e) -> {
+            JComboBox comboBox = (JComboBox) e.getSource();
+            from = currencies.get(comboBox.getSelectedIndex());
         };
     }
 
     private ItemListener currencyToChanged() {
-        return new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                JComboBox comboBox = (JComboBox) e.getSource();
-                to = currencies.get(comboBox.getSelectedIndex());
-            }
+        return (ItemEvent e) -> {
+            JComboBox comboBox = (JComboBox) e.getSource();
+            to = currencies.get(comboBox.getSelectedIndex());
         };
     }
     

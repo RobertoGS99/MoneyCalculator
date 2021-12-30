@@ -6,6 +6,8 @@ import Model.Money;
 import Persistence.ExchangeRateLoader;
 import View.MoneyDialog;
 import View.MoneyDisplay;
+import View.Swing.SwingMoneyDialog;
+import View.Swing.SwingMoneyDisplay;
 
 public class CalculateCommand implements Command {
     
